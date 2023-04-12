@@ -11,36 +11,52 @@ def Menu():
     print("3. Multiplicacion")
     print("4. Division")
     print("5. Salir")
-    Opc = int(input(f"Ingrese opcion: \n"))
-    while(Opc < 1 or Opc > 5):
-        Opc = int(input(f"ERROR! Opcion solo 1 a 5, ingrese nuevamente: \n"))
-    return Opc
+    try:
+        Opc = int(input(f"Ingrese opcion: \n"))
+        while(Opc < 1 or Opc > 5):
+            Opc = int(input(f"ERROR! Opcion solo 1 a 5, ingrese nuevamente: \n"))
+        return Opc
+    except ValueError:
+        print(F"\nERROR!!   Ingreso una letra, el programa se cerrara.")
 
 def Suma(n):                        #Funcion encargada de la suma
     SumaTotal = 0
-    for i in range(0,n):            #Usamos for para repetir las "n" veces
-        SumaTotal = SumaTotal + int(input(f"Ingrese {i+1} numero: \n"))
+    try:
+        for i in range(0,n):            #Usamos for para repetir las "n" veces
+            SumaTotal = SumaTotal + int(input(f"Ingrese {i+1} numero: \n"))
+    except ValueError:
+        print(F"\nERROR!!   Ingreso una letra, el programa se reiniciara.")
     return SumaTotal                #Devolver la suma
     
 def Resta(n):                       #Funcion encargada de la resta
     Diferencia = 0
-    for i in range(0,n):            #Usamos for para repetir las "n" veces
-        Diferencia = Diferencia - int(input(f"Ingrese {i+1} numero: \n"))
+    try:
+        for i in range(0,n):            #Usamos for para repetir las "n" veces
+            Diferencia = Diferencia - int(input(f"Ingrese {i+1} numero: \n"))
+    except ValueError:
+        print(F"\nERROR!!   Ingreso una letra, el programa se reiniciara.")
     return Diferencia               #Devolver la diferencia
 
 def Multiplicacion(n):              #Funcion encargada 
     Producto = 0
-    for i in range(0,n):
-        Producto = Producto * int(input(f"Ingrese {i+1} numero: \n"))
+    try:
+        for i in range(0,n):
+            Producto = Producto * int(input(f"Ingrese {i+1} numero: \n"))
+    except ValueError:
+        print(F"\nERROR!!   Ingreso una letra, el programa se reiniciara.")
     return Producto
 
 def Division():
-    Dividendo = int(input(f"Ingrese dividendo: \n"))
-    Divisor = int(input(f"Ingrese divisor(diferente a 0):\n"))
+    try:
+        Dividendo = int(input(f"Ingrese dividendo: \n"))
+        Divisor = int(input(f"Ingrese divisor(diferente a 0):\n"))
+    except ValueError:
+        print(F"\nERROR!!   Ingreso una letra, el programa se reiniciara.")
+    
     try:
         Cociente = Dividendo/Divisor
     except ZeroDivisionError:
-        print("ingreso un numero cero, ingrese nuevamente")
+        print(f"Ingreso un numero cero, ingrese nuevamente:\n")
     else:
         return Cociente
     

@@ -11,12 +11,12 @@ def Menu():
     print("2. Resta")
     print("3. Multiplicacion")
     print("4. Division")
-    Opcion = int(print("Ingrese opcion: \n"))
-    return opcion
+    Opc = int(input("Ingrese opcion: \n"))
+    return Opc
     
 
 #validacion
-n = int(print("Ingrese n: "))    #Ingreso de la cantidad de numeros a operar
+n = int(input("Ingrese n: "))    #Ingreso de la cantidad de numeros a operar
 Operacion = Menu()
 
 

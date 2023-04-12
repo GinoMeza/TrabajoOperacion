@@ -13,19 +13,19 @@ def Menu():
         Opc = int(input(f"ERROR! Opcion solo 1 a 5, ingrese nuevamente: \n"))
     return Opc
 
-def Suma(n):
+def Suma(n):                        #Funcion encargada de la suma
     SumaTotal = 0
-    for i in range(0,n):
+    for i in range(0,n):            #Usamos for para repetir las "n" veces
         SumaTotal = SumaTotal + int(input(f"Ingrese {i+1} numero: \n"))
-    return SumaTotal
+    return SumaTotal                #Devolver la suma
     
-def Resta(n):
+def Resta(n):                       #Funcion encargada de la resta
     Diferencia = 0
-    for i in range(0,n):
+    for i in range(0,n):            #Usamos for para repetir las "n" veces
         Diferencia = Diferencia - int(input(f"Ingrese {i+1} numero: \n"))
-    return Diferencia
+    return Diferencia               #Devolver la diferencia
 
-def Multiplicacion(n):
+def Multiplicacion(n):              #Funcion encargada 
     Producto = 0
     for i in range(0,n):
         Producto = Producto * int(input(f"Ingrese {i+1} numero: \n"))
@@ -63,7 +63,6 @@ while Operacion != 5:
 
 if Operacion == 5:
         print("Vuelva pronto")
-
 
 
 

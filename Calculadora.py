@@ -9,7 +9,7 @@ def Menu():
     print("4. Division")
     print("5. Salir")
     Opc = int(input(f"Ingrese opcion: \n"))
-    while(Opc < 1 and Opc > 5):
+    while(Opc < 1 or Opc > 5):
         Opc = int(input(f"ERROR! Opcion solo 1 a 5, ingrese nuevamente: \n"))
     return Opc
 

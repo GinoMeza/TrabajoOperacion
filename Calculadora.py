@@ -1,5 +1,5 @@
 ##################################################################
-#   Crear una aplicacion que implemente: suma, resta, multiplicacion y division de n numeros.
+#   Crear una aplicacion que implemente: suma, resta, multiplicacion y division de numeros.
 #   Validar los numeros por parametros para los numeros
 
 
@@ -11,13 +11,10 @@ def Menu():
     print("3. Multiplicacion")
     print("4. Division")
     print("5. Salir")
-    try:
-        Opc = int(input(f"Ingrese opcion: \n"))
-        while(Opc < 1 or Opc > 5):
-            Opc = int(input(f"ERROR! Opcion solo 1 a 5, ingrese nuevamente: \n"))
-        return Opc
-    except ValueError:
-        print(f"Ingreso una letra\n")
+    Opc = int(input(f"Ingrese opcion: \n"))
+    while(Opc < 1 or Opc > 5):
+        Opc = int(input(f"ERROR! Opcion solo 1 a 5, ingrese nuevamente: \n"))
+    return Opc
 
 def Suma(n):
     SumaTotal = 0
@@ -25,55 +22,55 @@ def Suma(n):
         SumaTotal = SumaTotal + int(input(f"Ingrese {i+1} numero: \n"))
     return SumaTotal
     
+def Resta(n):
+    Diferencia = 0
+    for i in range(0,n):
+        Diferencia = Diferencia - int(input(f"Ingrese {i+1} numero: \n"))
+    return Diferencia
+
+def Multiplicacion(n):
+    Producto = 0
+    for i in range(0,n):
+        Producto = Producto * int(input(f"Ingrese {i+1} numero: \n"))
+    return Producto
+
+def Division():
+    Dividendo = int(input(f"Ingrese dividendo: \n"))
+    Divisor = int(input(f"Ingrese divisor(diferente a 0):\n"))
+    try:
+        Cociente = Dividendo/Divisor
+    except ZeroDivisionError:
+        print("ingreso un numero cero, ingrese nuevamente")
+    else:
+        return Cociente
+    
+
+
 ######  Principal   ######
-print("Sumas, resta, multiplicacion y division de n numeros:")   #Titulo del programa
+print(f"********            Sumas, resta y multiplicacion de n numeros y division de 2 numeros           **********\n\n")   #Titulo del programa
 
 #validacion
+
 Operacion = Menu()
+if Operacion != 4:
+    n = int(input(f"\nIngrese cantidad de numeros a operar(Suma, resta, multiplicacion): \n"))    #Ingreso de la cantidad de numeros a operar
 
-while Operacion > 5 and Operacion < 0:
-    try:
-        print("Muy bien")
-    except ValueError:
-        print("Llamaste una letra ingresar un numero del 1 al 5..")
-    else:
-        n = int(input("Ingrese cantidad de numeros a operar: "))    #Ingreso de la cantidad de numeros a operar
+
+while Operacion != 5:
+    try:   
         if Operacion == 1:
-            print(f"La suma es: {Suma(n)}")
+            print(f"La suma es: {Suma(n)}\n\n")
+        elif Operacion == 2:
+            print(f"La resta es: {Resta(n)}\n\n")
+        elif Operacion == 3:
+            print(f"La multiplicacion es: {Multiplicacion(n)}\n\n")
+        elif Operacion == 4:
+            print(f"La division es: {Division()}\n\n")
+    except ValueError:
+        print("ingresaste una letra........")
+    finally:
+        Operacion = Menu()
 
-'''
 
-
-#restricciones
-#try 
-#except
-#finally
-
-def dividir(num,div):
-  return num/div
-
-
-try:
-	# Codigo a ejecutar
-	# Pero podria haber errores en este bloque
-    num=int(input("numero 1: "))
-    div=int(input("numero 2: "))
-    res=dividir(num/div)
-    
-    
-except ZeroDivisionError:
-	# Haz esto para manejar la excepcion
-	# El bloque except se ejecutara si el bloque try lanza un error
-    print("Trataste de dividir entre cero")
-
-except ValueError:
-    print("llamastes una letra ...")
-
-else:
-	# Esto se ejecutara si el bloque try se ejecuta sin errores
-    print(res)
-   
-finally:
-	# Este bloque se ejecutara siempre
-    print("gracias")
-'''
+if Operacion == 5:
+        print("Vuelva pronto")

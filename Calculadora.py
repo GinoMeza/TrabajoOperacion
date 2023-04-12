@@ -2,7 +2,10 @@
 #   Crear una aplicacion que implemente: suma, resta, multiplicacion y division de numeros.
 #   Validar los numeros por parametros para los numeros
 
+
+
 def Menu():
+    Opc = 0
     print("1. Suma")
     print("2. Resta")
     print("3. Multiplicacion")
@@ -34,10 +37,13 @@ def Multiplicacion(n):              #Funcion encargada
 def Division():
     Dividendo = int(input(f"Ingrese dividendo: \n"))
     Divisor = int(input(f"Ingrese divisor(diferente a 0):\n"))
-    while(Divisor == 0):
-        Divisor = int(input(f"ERROR! Dividendo no debe ser 0, ingrese nuevamente: \n"))
-    Cociente = Dividendo/Divisor
-    return Cociente
+    try:
+        Cociente = Dividendo/Divisor
+    except ZeroDivisionError:
+        print("ingreso un numero cero, ingrese nuevamente")
+    else:
+        return Cociente
+    
 
 
 ######  Principal   ######
@@ -51,15 +57,20 @@ if Operacion != 4:
 
 
 while Operacion != 5:
-    if Operacion == 1:
-        print(f"La suma es: {Suma(n)}\n\n")
-    elif Operacion == 2:
-        print(f"La resta es: {Resta(n)}\n\n")
-    elif Operacion == 3:
-        print(f"La multiplicacion es: {Multiplicacion(n)}\n\n")
-    elif Operacion == 4:
-        print(f"La division es: {Division()}\n\n")
-    Operacion = Menu()
+    try:   
+        if Operacion == 1:
+            print(f"La suma es: {Suma(n)}\n\n")
+        elif Operacion == 2:
+            print(f"La resta es: {Resta(n)}\n\n")
+        elif Operacion == 3:
+            print(f"La multiplicacion es: {Multiplicacion(n)}\n\n")
+        elif Operacion == 4:
+            print(f"La division es: {Division()}\n\n")
+    except ValueError:
+        print("ingresaste una letra........")
+    finally:
+        Operacion = Menu()
+
 
 if Operacion == 5:
         print("Vuelva pronto")
